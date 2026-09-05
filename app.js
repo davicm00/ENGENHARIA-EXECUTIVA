@@ -1,14 +1,8 @@
 /* =====================================================================
-   CONFIGURAÇÃO DE E-MAIL (EmailJS) — PREENCHA AQUI
-   -----------------------------------------------------------------
-   1. Crie uma conta gratuita em https://www.emailjs.com
-   2. Conecte seu Gmail (ou outro provedor) em "Email Services"
-   3. Crie um template em "Email Templates" com as variáveis:
-      {{student_name}}, {{score}}, {{total}}, {{date}}, {{time}}, {{parent_email}}
-   4. Copie o Service ID, Template ID e Public Key abaixo.
-   Enquanto isso não for preenchido, a prova funciona normalmente,
-   mas o e-mail de notificação não será enviado (ficará na fila).
+   PROVAS LAURA — APP.JS
+   Banco de questões, geração da prova, EmailJS e fila de relatórios
 ===================================================================== */
+
 var EMAILJS_CONFIG = {
   PUBLIC_KEY: 'Rn5XRC_kIDLhy5XtB',
   SERVICE_ID: 'service_hinemhc',
@@ -16,206 +10,1025 @@ var EMAILJS_CONFIG = {
   PARENT_EMAIL: 'davicm00@gmail.com'
 };
 
-// ===================== ESTADO DO APP =====================
+
+/* ===================== ESTADO DO APP ===================== */
+
 var QUESTION_BANK = [];
 var DISCURSIVE_BANK = [];
+
 var currentExam = [];
 var currentAnswers = [];
 var currentIndex = 0;
+
 var studentName = '';
+
 var discursiveQuestion = null;
 var discursiveAnswer = '';
-var TOTAL_STEPS = 11; // 10 objetivas + 1 discursiva
+
+var TOTAL_STEPS = 11;
 var questionsReady = false;
 
-const QUESTIONS_CACHE_KEY = 'prova1ano_questions_cache_v1';
-const PENDING_REPORTS_KEY = 'prova1ano_pending_reports_v1';
 
-// ===================== CARREGAMENTO DAS QUESTÕES =====================
-// Busca o banco de questões em questions.json (repositório separado do app).
-// Se estiver offline e não houver rede, usa a última cópia salva localmente.
-async function loadQuestions(){
-  const statusEl = document.getElementById('loadStatus');
+/* ===================== ARMAZENAMENTO ===================== */
+
+const QUESTIONS_CACHE_KEY = 'prova1ano_questions_cache_v2';
+const PENDING_REPORTS_KEY = 'prova1ano_pending_reports_v2';
+
+
+/* ===================== UTILITÁRIOS ===================== */
+
+function createReportId() {
+  return 'report_' +
+    Date.now() +
+    '_' +
+    Math.random().toString(36).substring(2, 10);
+}
+
+
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+
+function getErrorMessage(error) {
+  if (!error) return 'Erro desconhecido';
+
+  if (typeof error === 'string') {
+    return error;
+  }
+
+  if (error.text) {
+    return error.text;
+  }
+
+  if (error.message) {
+    return error.message;
+  }
+
   try {
-    const res = await fetch('questions.json', { cache: 'no-store' });
-    if (!res.ok) throw new Error('Falha ao buscar questions.json: ' + res.status);
-    const data = await res.json();
+    return JSON.stringify(error);
+  } catch (e) {
+    return String(error);
+  }
+}
+
+
+/* ===================== CARREGAMENTO DAS QUESTÕES ===================== */
+
+async function loadQuestions() {
+
+  const statusEl = document.getElementById('loadStatus');
+
+  if (statusEl) {
+    statusEl.textContent = '📚 Carregando banco de questões...';
+  }
+
+  try {
+
+    const controller = new AbortController();
+
+    const timeout = setTimeout(() => {
+      controller.abort();
+    }, 12000);
+
+    const response = await fetch(
+      'questions.json?version=' + Date.now(),
+      {
+        cache: 'no-store',
+        signal: controller.signal
+      }
+    );
+
+    clearTimeout(timeout);
+
+    if (!response.ok) {
+      throw new Error(
+        'Servidor respondeu com erro HTTP ' + response.status
+      );
+    }
+
+    const data = await response.json();
+
+    if (!data || !Array.isArray(data.bank)) {
+      throw new Error(
+        'questions.json foi carregado, mas a estrutura do banco é inválida.'
+      );
+    }
+
+    if (!Array.isArray(data.discursive)) {
+      data.discursive = [];
+    }
+
+    if (data.bank.length === 0) {
+      throw new Error(
+        'O banco de questões está vazio.'
+      );
+    }
+
     QUESTION_BANK = data.bank;
     DISCURSIVE_BANK = data.discursive;
-    try { localStorage.setItem(QUESTIONS_CACHE_KEY, JSON.stringify(data)); } catch(e) {}
-    questionsReady = true;
-    if (statusEl) statusEl.textContent = '';
-  } catch (err) {
-    // Sem internet (ou primeiro acesso sem conexão): tenta usar cópia salva localmente
+
     try {
-      const cached = localStorage.getItem(QUESTIONS_CACHE_KEY);
-      if (cached) {
-        const data = JSON.parse(cached);
-        QUESTION_BANK = data.bank;
-        DISCURSIVE_BANK = data.discursive;
-        questionsReady = true;
-        if (statusEl) statusEl.textContent = '📶 Sem internet agora — usando as questões salvas do último acesso.';
-      } else {
-        questionsReady = false;
-        if (statusEl) statusEl.textContent = '⚠️ Sem internet e sem questões salvas. Conecte-se à internet ao menos uma vez para carregar a prova.';
-      }
-    } catch (e2) {
-      questionsReady = false;
-      if (statusEl) statusEl.textContent = '⚠️ Não foi possível carregar as questões.';
+      localStorage.setItem(
+        QUESTIONS_CACHE_KEY,
+        JSON.stringify(data)
+      );
+    } catch (storageError) {
+      console.warn(
+        'Não foi possível salvar as questões no armazenamento local:',
+        storageError
+      );
     }
+
+    questionsReady = true;
+
+    if (statusEl) {
+      statusEl.textContent =
+        '✅ ' +
+        QUESTION_BANK.length +
+        ' questões carregadas com sucesso.';
+    }
+
+    console.log(
+      'Banco de questões carregado:',
+      QUESTION_BANK.length,
+      'questões objetivas e',
+      DISCURSIVE_BANK.length,
+      'discursivas.'
+    );
+
+  } catch (error) {
+
+    console.error(
+      'Falha ao carregar questions.json:',
+      error
+    );
+
+    try {
+
+      const cached = localStorage.getItem(
+        QUESTIONS_CACHE_KEY
+      );
+
+      if (!cached) {
+        throw new Error(
+          'Não existe cópia local das questões.'
+        );
+      }
+
+      const data = JSON.parse(cached);
+
+      if (
+        !data ||
+        !Array.isArray(data.bank) ||
+        data.bank.length === 0
+      ) {
+        throw new Error(
+          'A cópia local das questões é inválida.'
+        );
+      }
+
+      QUESTION_BANK = data.bank;
+      DISCURSIVE_BANK =
+        Array.isArray(data.discursive)
+          ? data.discursive
+          : [];
+
+      questionsReady = true;
+
+      const errorText = getErrorMessage(error);
+
+      if (statusEl) {
+
+        if (navigator.onLine === false) {
+
+          statusEl.textContent =
+            '📶 Sem internet — usando ' +
+            QUESTION_BANK.length +
+            ' questões salvas neste dispositivo.';
+
+        } else {
+
+          statusEl.textContent =
+            '⚠️ Não foi possível atualizar questions.json. ' +
+            'Usando a última versão salva. ' +
+            'Detalhe: ' +
+            errorText;
+        }
+
+      }
+
+    } catch (cacheError) {
+
+      console.error(
+        'Também falhou ao carregar a cópia local:',
+        cacheError
+      );
+
+      questionsReady = false;
+
+      if (statusEl) {
+
+        statusEl.textContent =
+          '❌ Não foi possível carregar as questões. ' +
+          'Verifique a conexão e atualize a página.';
+
+      }
+
+    }
+
   }
+
   updateStartButtonState();
 }
 
-function updateStartButtonState(){
+
+function updateStartButtonState() {
+
   const btn = document.getElementById('btnStart');
+
   if (!btn) return;
+
   btn.disabled = !questionsReady;
+
 }
 
-// ===================== FUNÇÕES AUXILIARES DE SORTEIO =====================
+
+/* ===================== SORTEIO ===================== */
+
 function shuffleArray(arr) {
-  const a = arr.slice();
-  for (let i = a.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [a[i], a[j]] = [a[j], a[i]];
+
+  const array = arr.slice();
+
+  for (
+    let i = array.length - 1;
+    i > 0;
+    i--
+  ) {
+
+    const j = Math.floor(
+      Math.random() * (i + 1)
+    );
+
+    [array[i], array[j]] =
+      [array[j], array[i]];
+
   }
-  return a;
+
+  return array;
 }
+
 
 function generateExam() {
-  const subjects = shuffleArray([...new Set(QUESTION_BANK.map(q => q.subject))]);
+
+  if (!QUESTION_BANK.length) {
+    return [];
+  }
+
+  const subjects = shuffleArray(
+    [...new Set(
+      QUESTION_BANK.map(q => q.subject)
+    )]
+  );
+
   const usedIds = new Set();
+
   let selected = [];
 
+
+  /* Primeiro tenta escolher
+     uma questão de cada matéria */
   subjects.forEach(subject => {
-    const opts = QUESTION_BANK.filter(q => q.subject === subject);
-    const pick = opts[Math.floor(Math.random() * opts.length)];
-    selected.push(pick);
-    usedIds.add(pick.id);
+
+    const subjectQuestions =
+      QUESTION_BANK.filter(
+        q => q.subject === subject
+      );
+
+    if (!subjectQuestions.length) return;
+
+    const question =
+      subjectQuestions[
+        Math.floor(
+          Math.random() *
+          subjectQuestions.length
+        )
+      ];
+
+    if (!usedIds.has(question.id)) {
+
+      selected.push(question);
+
+      usedIds.add(question.id);
+
+    }
+
   });
 
-  let remainingPool = shuffleArray(QUESTION_BANK.filter(q => !usedIds.has(q.id)));
-  while (selected.length < 10 && remainingPool.length > 0) {
-    selected.push(remainingPool.pop());
+
+  /* Completa até 10 questões */
+  const remainingPool = shuffleArray(
+    QUESTION_BANK.filter(
+      q => !usedIds.has(q.id)
+    )
+  );
+
+  while (
+    selected.length < 10 &&
+    remainingPool.length > 0
+  ) {
+
+    const question =
+      remainingPool.pop();
+
+    selected.push(question);
+
+    usedIds.add(question.id);
+
   }
 
-  selected = shuffleArray(selected).slice(0, 10);
 
-  return selected.map(q => {
-    const optionIndices = q.options.map((opt, idx) => ({ opt, idx }));
-    const shuffled = shuffleArray(optionIndices);
-    const newOptions = shuffled.map(o => o.opt);
-    const newCorrect = shuffled.findIndex(o => o.idx === q.correct);
+  selected =
+    shuffleArray(selected)
+      .slice(0, 10);
+
+
+  /* Embaralha as alternativas */
+  return selected.map(question => {
+
+    const optionIndices =
+      question.options.map(
+        (option, index) => ({
+          option,
+          index
+        })
+      );
+
+    const shuffled =
+      shuffleArray(optionIndices);
+
+    const newOptions =
+      shuffled.map(
+        item => item.option
+      );
+
+    const newCorrect =
+      shuffled.findIndex(
+        item =>
+          item.index ===
+          question.correct
+      );
+
     return {
-      id: q.id, subject: q.subject, icon: q.icon, q: q.q,
-      options: newOptions, correct: newCorrect, explain: q.explain
+
+      id: question.id,
+
+      subject:
+        question.subject,
+
+      icon:
+        question.icon,
+
+      q:
+        question.q,
+
+      options:
+        newOptions,
+
+      correct:
+        newCorrect,
+
+      explain:
+        question.explain
+
     };
+
   });
+
 }
+
 
 function pickDiscursiveQuestion() {
-  const pool = shuffleArray(DISCURSIVE_BANK);
+
+  if (!DISCURSIVE_BANK.length) {
+
+    return {
+      id: 'fallback_discursive',
+
+      subject: 'Discursiva',
+
+      icon: '✍️',
+
+      prompt:
+        'Conte algo interessante que você aprendeu recentemente.',
+
+      guidance:
+        'Observe organização das ideias e clareza da resposta.'
+    };
+
+  }
+
+  const pool =
+    shuffleArray(DISCURSIVE_BANK);
+
   return pool[0];
+
 }
 
-// ===================== ENVIO DE E-MAIL (com fila offline) =====================
-function isEmailConfigured(){
-  return EMAILJS_CONFIG.PUBLIC_KEY && !EMAILJS_CONFIG.PUBLIC_KEY.startsWith('Rn5XRC_kIDLhy5XtB') &&
-         EMAILJS_CONFIG.SERVICE_ID && !EMAILJS_CONFIG.SERVICE_ID.startsWith('service_hinemhc') &&
-         EMAILJS_CONFIG.TEMPLATE_ID && !EMAILJS_CONFIG.TEMPLATE_ID.startsWith('template_dvu76xu');
+
+/* ===================== EMAILJS ===================== */
+
+function isEmailConfigured() {
+
+  return Boolean(
+
+    EMAILJS_CONFIG &&
+
+    typeof EMAILJS_CONFIG.PUBLIC_KEY === 'string' &&
+    EMAILJS_CONFIG.PUBLIC_KEY.trim().length > 0 &&
+
+    typeof EMAILJS_CONFIG.SERVICE_ID === 'string' &&
+    EMAILJS_CONFIG.SERVICE_ID.trim().length > 0 &&
+
+    typeof EMAILJS_CONFIG.TEMPLATE_ID === 'string' &&
+    EMAILJS_CONFIG.TEMPLATE_ID.trim().length > 0 &&
+
+    typeof EMAILJS_CONFIG.PARENT_EMAIL === 'string' &&
+    EMAILJS_CONFIG.PARENT_EMAIL.includes('@')
+
+  );
+
 }
 
-function queueReport(report){
-  let queue = [];
-  try { queue = JSON.parse(localStorage.getItem(PENDING_REPORTS_KEY) || '[]'); } catch(e) { queue = []; }
-  queue.push(report);
-  try { localStorage.setItem(PENDING_REPORTS_KEY, JSON.stringify(queue)); } catch(e) {}
-}
 
-function getQueuedReports(){
-  try { return JSON.parse(localStorage.getItem(PENDING_REPORTS_KEY) || '[]'); } catch(e) { return []; }
-}
+/* ===================== FILA DE RELATÓRIOS ===================== */
 
-function removeFromQueue(report){
-  const queue = getQueuedReports().filter(r => !(r.name === report.name && r.date === report.date && r.time === report.time));
-  try { localStorage.setItem(PENDING_REPORTS_KEY, JSON.stringify(queue)); } catch(e) {}
-}
+function getQueuedReports() {
 
-// Espera o SDK do EmailJS ficar disponível, tentando por alguns segundos antes de desistir
-// (cobre o caso de uma rede lenta, ou de uma segunda fonte de CDN sendo carregada como reserva).
-function waitForEmailJS(timeoutMs, intervalMs){
-  timeoutMs = timeoutMs || 4000;
-  intervalMs = intervalMs || 200;
-  return new Promise((resolve) => {
-    const start = Date.now();
-    (function check(){
-      if (typeof emailjs !== 'undefined' && window.EMAILJS_CONFIG_INIT === true) return resolve(true);
-      if (Date.now() - start >= timeoutMs) return resolve(false);
-      setTimeout(check, intervalMs);
-    })();
-  });
-}
-async function sendReport(report){
-  if (!isEmailConfigured()){
-    queueReport(report);
-    return { sent: false, reason: 'not_configured' };
-  }
-  if (typeof emailjs === 'undefined'){
-    const became = await waitForEmailJS();
-    if (!became){
-      queueReport(report);
-      return { sent: false, reason: 'sdk_unavailable' };
-    }
-  }
   try {
-    await emailjs.send(EMAILJS_CONFIG.SERVICE_ID, EMAILJS_CONFIG.TEMPLATE_ID, {
-      student_name: report.name,
-      score: report.score,
-      total: report.total,
-      date: report.date,
-      time: report.time,
-      parent_email: EMAILJS_CONFIG.PARENT_EMAIL
-    }, { publicKey: EMAILJS_CONFIG.PUBLIC_KEY }); // v4 do EmailJS exige um OBJETO aqui, não uma string
-    return { sent: true };
-  } catch (err) {
-    queueReport(report);
-    // Importante: nem toda falha de envio é falta de internet! Pode ser IDs errados no
-    // EmailJS, template mal configurado, etc. Só chamamos de "offline" quando o navegador
-    // realmente reporta estar sem conexão (navigator.onLine === false).
-    const isActuallyOffline = (typeof navigator !== 'undefined') && navigator.onLine === false;
-    const detail = (err && (err.text || err.message)) ? (err.text || err.message) : JSON.stringify(err);
-    console.error('Falha ao enviar e-mail via EmailJS:', detail);
+
+    const queue =
+      JSON.parse(
+        localStorage.getItem(
+          PENDING_REPORTS_KEY
+        ) || '[]'
+      );
+
+    return Array.isArray(queue)
+      ? queue
+      : [];
+
+  } catch (error) {
+
+    console.error(
+      'Erro ao ler fila:',
+      error
+    );
+
+    return [];
+
+  }
+
+}
+
+
+function saveQueuedReports(queue) {
+
+  try {
+
+    localStorage.setItem(
+      PENDING_REPORTS_KEY,
+      JSON.stringify(queue)
+    );
+
+    return true;
+
+  } catch (error) {
+
+    console.error(
+      'Erro ao salvar fila:',
+      error
+    );
+
+    return false;
+
+  }
+
+}
+
+
+function queueReport(report) {
+
+  const queue =
+    getQueuedReports();
+
+  const exists =
+    queue.some(
+      item => item.id === report.id
+    );
+
+  if (!exists) {
+
+    queue.push(report);
+
+    saveQueuedReports(queue);
+
+  }
+
+}
+
+
+function removeFromQueue(reportId) {
+
+  const queue =
+    getQueuedReports();
+
+  const filtered =
+    queue.filter(
+      report =>
+        report.id !== reportId
+    );
+
+  saveQueuedReports(filtered);
+
+}
+
+
+function buildEmailReportText(report) {
+
+  let text = '';
+
+  text +=
+    'RESULTADO DA PROVA\n';
+
+  text +=
+    '==============================\n\n';
+
+  text +=
+    'Aluna: ' +
+    report.name +
+    '\n';
+
+  text +=
+    'Data: ' +
+    report.date +
+    '\n';
+
+  text +=
+    'Hora: ' +
+    report.time +
+    '\n\n';
+
+  text +=
+    'RESULTADO\n';
+
+  text +=
+    'Acertos: ' +
+    report.score +
+    ' de ' +
+    report.total +
+    '\n';
+
+  text +=
+    'Percentual: ' +
+    report.percentage +
+    '%\n\n';
+
+  text +=
+    'QUESTÕES OBJETIVAS\n';
+
+  text +=
+    '==============================\n\n';
+
+
+  report.questions.forEach(
+    (item, index) => {
+
+      text +=
+        (index + 1) +
+        '. ' +
+        item.subject +
+        '\n';
+
+      text +=
+        item.question +
+        '\n\n';
+
+      text +=
+        'Resposta da aluna: ' +
+        item.userAnswer +
+        '\n';
+
+      text +=
+        'Resposta correta: ' +
+        item.correctAnswer +
+        '\n';
+
+      text +=
+        'Resultado: ' +
+        (
+          item.isCorrect
+            ? 'ACERTOU'
+            : 'ERROU'
+        ) +
+        '\n';
+
+      if (
+        !item.isCorrect &&
+        item.explanation
+      ) {
+
+        text +=
+          'Explicação: ' +
+          item.explanation +
+          '\n';
+
+      }
+
+      text +=
+        '\n------------------------------\n\n';
+
+    }
+  );
+
+
+  text +=
+    'QUESTÃO DISCURSIVA\n';
+
+  text +=
+    '==============================\n\n';
+
+  text +=
+    'Pergunta:\n' +
+    report.discursive.question +
+    '\n\n';
+
+  text +=
+    'Resposta da aluna:\n' +
+    report.discursive.answer +
+    '\n\n';
+
+  text +=
+    'Orientação para correção:\n' +
+    report.discursive.guidance +
+    '\n';
+
+
+  return text;
+
+}
+
+
+/* ===================== ENVIO ===================== */
+
+async function sendReport(report) {
+
+  if (!report || !report.id) {
+
     return {
       sent: false,
-      reason: isActuallyOffline ? 'offline' : 'send_error',
-      detail: detail
+      reason: 'invalid_report',
+      detail:
+        'Relatório inválido.'
     };
+
   }
-}
 
-// Tenta reenviar relatórios pendentes (chamado ao iniciar o app e quando a conexão volta)
-async function flushQueuedReports(){
-  if (!isEmailConfigured()) return;
-  const queue = getQueuedReports();
-  for (const report of queue) {
-    const result = await sendReport(report);
-    if (result.sent) removeFromQueue(report);
+
+  if (!isEmailConfigured()) {
+
+    queueReport(report);
+
+    return {
+      sent: false,
+      reason: 'not_configured'
+    };
+
   }
+
+
+  if (
+    typeof emailjs ===
+    'undefined'
+  ) {
+
+    queueReport(report);
+
+    return {
+      sent: false,
+      reason: 'sdk_unavailable'
+    };
+
+  }
+
+
+  if (
+    typeof navigator !== 'undefined' &&
+    navigator.onLine === false
+  ) {
+
+    queueReport(report);
+
+    return {
+      sent: false,
+      reason: 'offline'
+    };
+
+  }
+
+
+  try {
+
+    const reportText =
+      buildEmailReportText(report);
+
+
+    await emailjs.send(
+
+      EMAILJS_CONFIG.SERVICE_ID,
+
+      EMAILJS_CONFIG.TEMPLATE_ID,
+
+      {
+
+        /* Campos simples */
+        student_name:
+          report.name,
+
+        score:
+          report.score,
+
+        total:
+          report.total,
+
+        percentage:
+          report.percentage + '%',
+
+        date:
+          report.date,
+
+        time:
+          report.time,
+
+        parent_email:
+          EMAILJS_CONFIG.PARENT_EMAIL,
+
+        report_id:
+          report.id,
+
+
+        /* Relatório completo */
+        report_text:
+          reportText,
+
+        questions_json:
+          JSON.stringify(
+            report.questions,
+            null,
+            2
+          ),
+
+        discursive_question:
+          report.discursive.question,
+
+        discursive_answer:
+          report.discursive.answer,
+
+        discursive_guidance:
+          report.discursive.guidance
+
+      },
+
+      {
+
+        publicKey:
+          EMAILJS_CONFIG.PUBLIC_KEY
+
+      }
+
+    );
+
+
+    console.log(
+      'Relatório enviado com sucesso:',
+      report.id
+    );
+
+
+    return {
+      sent: true
+    };
+
+
+  } catch (error) {
+
+    const detail =
+      getErrorMessage(error);
+
+
+    console.error(
+      'Falha no EmailJS:',
+      detail
+    );
+
+
+    queueReport(report);
+
+
+    const isActuallyOffline =
+      typeof navigator !== 'undefined' &&
+      navigator.onLine === false;
+
+
+    return {
+
+      sent: false,
+
+      reason:
+        isActuallyOffline
+          ? 'offline'
+          : 'send_error',
+
+      detail:
+        detail
+
+    };
+
+  }
+
 }
 
-function formatNowBR(){
-  const now = new Date();
-  const date = now.toLocaleDateString('pt-BR');
-  const time = now.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' });
-  return { date, time };
-}
 
-if (typeof module !== 'undefined') {
-  module.exports = {
-    shuffleArray, generateExam, pickDiscursiveQuestion, loadQuestions,
-    isEmailConfigured, queueReport, getQueuedReports, removeFromQueue,
-    sendReport, flushQueuedReports, formatNowBR, waitForEmailJS,
-    _setBanks: (bank, disc) => { QUESTION_BANK = bank; DISCURSIVE_BANK = disc; questionsReady = true; }
+/* ===================== REENVIO DA FILA ===================== */
+
+async function flushQueuedReports() {
+
+  const queue =
+    getQueuedReports();
+
+
+  if (!queue.length) {
+
+    return {
+      sent: 0,
+      pending: 0
+    };
+
+  }
+
+
+  if (!isEmailConfigured()) {
+
+    return {
+      sent: 0,
+      pending: queue.length,
+      reason: 'not_configured'
+    };
+
+  }
+
+
+  if (
+    typeof emailjs ===
+    'undefined'
+  ) {
+
+    return {
+      sent: 0,
+      pending: queue.length,
+      reason: 'sdk_unavailable'
+    };
+
+  }
+
+
+  if (
+    typeof navigator !== 'undefined' &&
+    navigator.onLine === false
+  ) {
+
+    return {
+      sent: 0,
+      pending: queue.length,
+      reason: 'offline'
+    };
+
+  }
+
+
+  let sentCount = 0;
+
+
+  for (
+    const report of queue
+  ) {
+
+    const result =
+      await sendReport(report);
+
+
+    if (result.sent) {
+
+      removeFromQueue(
+        report.id
+      );
+
+      sentCount++;
+
+    } else {
+
+      console.warn(
+        'Relatório continua pendente:',
+        report.id,
+        result
+      );
+
+      await sleep(500);
+
+    }
+
+  }
+
+
+  return {
+
+    sent:
+      sentCount,
+
+    pending:
+      getQueuedReports().length
+
   };
+
+}
+
+
+/* ===================== DATA E HORA ===================== */
+
+function formatNowBR() {
+
+  const now =
+    new Date();
+
+
+  return {
+
+    date:
+      now.toLocaleDateString(
+        'pt-BR'
+      ),
+
+    time:
+      now.toLocaleTimeString(
+        'pt-BR',
+        {
+          hour:
+            '2-digit',
+
+          minute:
+            '2-digit'
+        }
+      )
+
+  };
+
+}
+
+
+/* ===================== EXPORTAÇÃO PARA TESTES ===================== */
+
+if (
+  typeof module !== 'undefined'
+) {
+
+  module.exports = {
+
+    shuffleArray,
+
+    generateExam,
+
+    pickDiscursiveQuestion,
+
+    loadQuestions,
+
+    isEmailConfigured,
+
+    queueReport,
+
+    getQueuedReports,
+
+    removeFromQueue,
+
+    sendReport,
+
+    flushQueuedReports,
+
+    formatNowBR,
+
+    createReportId,
+
+    buildEmailReportText
+
+  };
+
 }
