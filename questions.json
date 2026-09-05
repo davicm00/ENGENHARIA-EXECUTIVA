@@ -1,0 +1,1182 @@
+{
+  "bank": [
+    {
+      "id": "pt1",
+      "subject": "Português",
+      "icon": "📚",
+      "q": "Qual é o SINÔNIMO de \"feliz\"?",
+      "options": [
+        "Triste",
+        "Contente",
+        "Cansado",
+        "Bravo"
+      ],
+      "correct": 1,
+      "explain": "Sinônimo é uma palavra com significado parecido. \"Contente\" tem o mesmo sentido de \"feliz\"."
+    },
+    {
+      "id": "pt2",
+      "subject": "Português",
+      "icon": "📚",
+      "q": "Qual é o ANTÔNIMO (contrário) de \"grande\"?",
+      "options": [
+        "Alto",
+        "Forte",
+        "Pequeno",
+        "Rápido"
+      ],
+      "correct": 2,
+      "explain": "Antônimo é o contrário. O contrário de \"grande\" é \"pequeno\"."
+    },
+    {
+      "id": "pt3",
+      "subject": "Português",
+      "icon": "📚",
+      "q": "Quantas sílabas tem a palavra \"BORBOLETA\"?",
+      "options": [
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
+      "correct": 1,
+      "explain": "BOR-BO-LE-TA tem 4 sílabas."
+    },
+    {
+      "id": "pt4",
+      "subject": "Português",
+      "icon": "📚",
+      "q": "Qual destas palavras vem PRIMEIRO em ordem alfabética?",
+      "options": [
+        "Uva",
+        "Abacaxi",
+        "Melancia",
+        "Pera"
+      ],
+      "correct": 1,
+      "explain": "Em ordem alfabética, \"Abacaxi\" vem primeiro porque começa com A."
+    },
+    {
+      "id": "pt5",
+      "subject": "Português",
+      "icon": "📚",
+      "q": "O plural de \"animal\" é:",
+      "options": [
+        "Animais",
+        "Animals",
+        "Animales",
+        "Animalzinhos"
+      ],
+      "correct": 0,
+      "explain": "Palavras terminadas em \"al\" trocam o \"l\" por \"is\" no plural: animal -> animais."
+    },
+    {
+      "id": "pt6",
+      "subject": "Português",
+      "icon": "📚",
+      "q": "Leia: \"Pedro acordou cedo, escovou os dentes e foi para a escola.\" O que Pedro fez PRIMEIRO?",
+      "options": [
+        "Foi para a escola",
+        "Escovou os dentes",
+        "Acordou",
+        "Almoçou"
+      ],
+      "correct": 2,
+      "explain": "Na ordem da frase, primeiro Pedro acordou, depois escovou os dentes e por último foi para a escola."
+    },
+    {
+      "id": "pt7",
+      "subject": "Português",
+      "icon": "📚",
+      "q": "Qual destas palavras é um VERBO (indica uma ação)?",
+      "options": [
+        "Correr",
+        "Azul",
+        "Cadeira",
+        "Bonito"
+      ],
+      "correct": 0,
+      "explain": "\"Correr\" indica uma ação, por isso é um verbo. As outras são adjetivo e substantivos."
+    },
+    {
+      "id": "pt8",
+      "subject": "Português",
+      "icon": "📚",
+      "q": "Complete: \"Ontem ______ chovendo o dia todo.\"",
+      "options": [
+        "Estava",
+        "Estará",
+        "Estou",
+        "Estarei"
+      ],
+      "correct": 0,
+      "explain": "\"Ontem\" indica passado, por isso usamos \"estava\"."
+    },
+    {
+      "id": "pt9",
+      "subject": "Português",
+      "icon": "📚",
+      "q": "Qual destas frases está com a PONTUAÇÃO correta para uma pergunta?",
+      "options": [
+        "Você foi à escola.",
+        "Você foi à escola!",
+        "Você foi à escola?",
+        "você foi à escola"
+      ],
+      "correct": 2,
+      "explain": "Perguntas terminam com ponto de interrogação (?)."
+    },
+    {
+      "id": "pt10",
+      "subject": "Português",
+      "icon": "📚",
+      "q": "Qual é o AUMENTATIVO da palavra \"casa\"?",
+      "options": [
+        "Casinha",
+        "Casarão",
+        "Casita",
+        "Casebre"
+      ],
+      "correct": 1,
+      "explain": "\"Casarão\" indica uma casa muito grande, por isso é o aumentativo de \"casa\"."
+    },
+    {
+      "id": "en1",
+      "subject": "Inglês",
+      "icon": "🌎",
+      "q": "What is the plural of \"cat\"?",
+      "options": [
+        "Cats",
+        "Cates",
+        "Cat's",
+        "Cating"
+      ],
+      "correct": 0,
+      "explain": "Para formar o plural, geralmente acrescentamos \"s\": cat -> cats."
+    },
+    {
+      "id": "en2",
+      "subject": "Inglês",
+      "icon": "🌎",
+      "q": "Qual é o oposto de \"big\" em inglês?",
+      "options": [
+        "Small",
+        "Tall",
+        "Fast",
+        "Happy"
+      ],
+      "correct": 0,
+      "explain": "\"Small\" (pequeno) é o oposto de \"big\" (grande)."
+    },
+    {
+      "id": "en3",
+      "subject": "Inglês",
+      "icon": "🌎",
+      "q": "Complete: \"She ______ to school every day.\"",
+      "options": [
+        "Go",
+        "Goes",
+        "Going",
+        "Went"
+      ],
+      "correct": 1,
+      "explain": "Com \"she\" (ela), o verbo recebe \"s\": she goes."
+    },
+    {
+      "id": "en4",
+      "subject": "Inglês",
+      "icon": "🌎",
+      "q": "Qual destes é um dia da semana em inglês?",
+      "options": [
+        "Monday",
+        "Summer",
+        "Winter",
+        "Yellow"
+      ],
+      "correct": 0,
+      "explain": "\"Monday\" significa segunda-feira, um dia da semana."
+    },
+    {
+      "id": "en5",
+      "subject": "Inglês",
+      "icon": "🌎",
+      "q": "Como se diz \"sete\" em inglês?",
+      "options": [
+        "Six",
+        "Seven",
+        "Eight",
+        "Nine"
+      ],
+      "correct": 1,
+      "explain": "\"Seven\" é o número 7 em inglês."
+    },
+    {
+      "id": "en6",
+      "subject": "Inglês",
+      "icon": "🌎",
+      "q": "Complete: \"There ______ two dogs in the yard.\"",
+      "options": [
+        "Is",
+        "Are",
+        "Am",
+        "Be"
+      ],
+      "correct": 1,
+      "explain": "Com palavras no plural (\"two dogs\"), usamos \"are\"."
+    },
+    {
+      "id": "en7",
+      "subject": "Inglês",
+      "icon": "🌎",
+      "q": "Qual é a tradução de \"eu gosto de\"?",
+      "options": [
+        "I like",
+        "I want",
+        "I have",
+        "I am"
+      ],
+      "correct": 0,
+      "explain": "\"I like\" significa \"eu gosto de\" em inglês."
+    },
+    {
+      "id": "en8",
+      "subject": "Inglês",
+      "icon": "🌎",
+      "q": "Como se diz \"amarelo\" em inglês?",
+      "options": [
+        "Yellow",
+        "Purple",
+        "Orange",
+        "Brown"
+      ],
+      "correct": 0,
+      "explain": "\"Yellow\" significa amarelo em inglês."
+    },
+    {
+      "id": "en9",
+      "subject": "Inglês",
+      "icon": "🌎",
+      "q": "Complete: \"This is ______ apple.\"",
+      "options": [
+        "A",
+        "An",
+        "The",
+        "Some"
+      ],
+      "correct": 1,
+      "explain": "Antes de palavras que começam com vogal (como \"apple\"), usamos \"an\"."
+    },
+    {
+      "id": "en10",
+      "subject": "Inglês",
+      "icon": "🌎",
+      "q": "Qual é o plural de \"child\"?",
+      "options": [
+        "Childs",
+        "Children",
+        "Childes",
+        "Childrens"
+      ],
+      "correct": 1,
+      "explain": "\"Child\" é uma palavra irregular; seu plural é \"children\", e não \"childs\"."
+    },
+    {
+      "id": "ma1",
+      "subject": "Matemática",
+      "icon": "🔢",
+      "q": "Quanto é 24 + 13?",
+      "options": [
+        "35",
+        "36",
+        "37",
+        "38"
+      ],
+      "correct": 2,
+      "explain": "24 + 13 = 37. Some as dezenas (20+10=30) e as unidades (4+3=7): 30+7=37."
+    },
+    {
+      "id": "ma2",
+      "subject": "Matemática",
+      "icon": "🔢",
+      "q": "Quanto é 45 − 20?",
+      "options": [
+        "15",
+        "20",
+        "25",
+        "30"
+      ],
+      "correct": 2,
+      "explain": "45 − 20 = 25. Tire 2 dezenas de 45."
+    },
+    {
+      "id": "ma3",
+      "subject": "Matemática",
+      "icon": "🔢",
+      "q": "Maria tinha 18 figurinhas e ganhou mais 7. Com quantas ela ficou?",
+      "options": [
+        "23",
+        "24",
+        "25",
+        "26"
+      ],
+      "correct": 2,
+      "explain": "18 + 7 = 25 figurinhas."
+    },
+    {
+      "id": "ma4",
+      "subject": "Matemática",
+      "icon": "🔢",
+      "q": "Qual destes números é ÍMPAR?",
+      "options": [
+        "12",
+        "15",
+        "18",
+        "20"
+      ],
+      "correct": 1,
+      "explain": "Números ímpares não podem ser divididos exatamente por 2. O 15 é ímpar."
+    },
+    {
+      "id": "ma5",
+      "subject": "Matemática",
+      "icon": "🔢",
+      "q": "Um pacote tem 10 balas. Se você tem 3 pacotes, quantas balas há ao todo?",
+      "options": [
+        "13",
+        "20",
+        "30",
+        "33"
+      ],
+      "correct": 2,
+      "explain": "3 pacotes de 10 balas: 10+10+10 = 30 balas."
+    },
+    {
+      "id": "ma6",
+      "subject": "Matemática",
+      "icon": "🔢",
+      "q": "Complete a sequência: 5, 10, 15, 20, ___",
+      "options": [
+        "22",
+        "24",
+        "25",
+        "30"
+      ],
+      "correct": 2,
+      "explain": "A sequência soma 5 a cada número: 5, 10, 15, 20, 25."
+    },
+    {
+      "id": "ma7",
+      "subject": "Matemática",
+      "icon": "🔢",
+      "q": "Quanto é a metade de 20?",
+      "options": [
+        "5",
+        "8",
+        "10",
+        "12"
+      ],
+      "correct": 2,
+      "explain": "Metade de 20 é 20 ÷ 2 = 10."
+    },
+    {
+      "id": "ma8",
+      "subject": "Matemática",
+      "icon": "🔢",
+      "q": "Qual número vem IMEDIATAMENTE ANTES do 50?",
+      "options": [
+        "48",
+        "49",
+        "51",
+        "52"
+      ],
+      "correct": 1,
+      "explain": "Antes do 50, na sequência, vem o 49."
+    },
+    {
+      "id": "ma9",
+      "subject": "Matemática",
+      "icon": "🔢",
+      "q": "Ana comprou um lápis por 4 reais e uma borracha por 3 reais. Quanto ela gastou no total?",
+      "options": [
+        "6",
+        "7",
+        "8",
+        "9"
+      ],
+      "correct": 1,
+      "explain": "4 + 3 = 7 reais no total."
+    },
+    {
+      "id": "ma10",
+      "subject": "Matemática",
+      "icon": "🔢",
+      "q": "Qual figura tem MAIS lados: um pentágono (5 lados) ou um quadrado (4 lados)?",
+      "options": [
+        "Pentágono",
+        "Quadrado",
+        "Os dois são iguais",
+        "Nenhum tem lados"
+      ],
+      "correct": 0,
+      "explain": "O pentágono tem 5 lados, um a mais que o quadrado, que tem 4."
+    },
+    {
+      "id": "ci1",
+      "subject": "Ciências",
+      "icon": "🔬",
+      "q": "Qual órgão do nosso corpo bombeia o sangue?",
+      "options": [
+        "Coração",
+        "Pulmão",
+        "Estômago",
+        "Fígado"
+      ],
+      "correct": 0,
+      "explain": "O coração bombeia o sangue para todo o corpo."
+    },
+    {
+      "id": "ci2",
+      "subject": "Ciências",
+      "icon": "🔬",
+      "q": "O que as abelhas produzem e que usamos na alimentação?",
+      "options": [
+        "Mel",
+        "Leite",
+        "Suco",
+        "Farinha"
+      ],
+      "correct": 0,
+      "explain": "As abelhas produzem o mel, que usamos como alimento."
+    },
+    {
+      "id": "ci3",
+      "subject": "Ciências",
+      "icon": "🔬",
+      "q": "Qual destes materiais NÃO se dissolve na água?",
+      "options": [
+        "Sal",
+        "Açúcar",
+        "Pedra",
+        "Suco em pó"
+      ],
+      "correct": 2,
+      "explain": "Sal, açúcar e suco em pó se dissolvem na água, mas a pedra não."
+    },
+    {
+      "id": "ci4",
+      "subject": "Ciências",
+      "icon": "🔬",
+      "q": "Os sapos passam por uma transformação do corpo chamada:",
+      "options": [
+        "Metamorfose",
+        "Hibernação",
+        "Fotossíntese",
+        "Evolução"
+      ],
+      "correct": 0,
+      "explain": "A metamorfose é a transformação do girino em sapo adulto."
+    },
+    {
+      "id": "ci5",
+      "subject": "Ciências",
+      "icon": "🔬",
+      "q": "Qual destes é um recurso natural RENOVÁVEL?",
+      "options": [
+        "Luz do sol",
+        "Petróleo",
+        "Carvão",
+        "Ouro"
+      ],
+      "correct": 0,
+      "explain": "A luz do sol é renovável porque nunca acaba, diferente do petróleo e do carvão."
+    },
+    {
+      "id": "ci6",
+      "subject": "Ciências",
+      "icon": "🔬",
+      "q": "O processo em que as plantas produzem seu alimento usando a luz do sol se chama:",
+      "options": [
+        "Fotossíntese",
+        "Respiração",
+        "Digestão",
+        "Germinação"
+      ],
+      "correct": 0,
+      "explain": "A fotossíntese é o processo pelo qual as plantas usam luz, água e ar para produzir seu alimento."
+    },
+    {
+      "id": "ci7",
+      "subject": "Ciências",
+      "icon": "🔬",
+      "q": "Qual destes animais é um ANFÍBIO?",
+      "options": [
+        "Sapo",
+        "Cachorro",
+        "Águia",
+        "Tubarão"
+      ],
+      "correct": 0,
+      "explain": "O sapo é um anfíbio: vive parte da vida na água e parte na terra."
+    },
+    {
+      "id": "ci8",
+      "subject": "Ciências",
+      "icon": "🔬",
+      "q": "Reciclar o lixo ajuda a:",
+      "options": [
+        "Proteger o meio ambiente",
+        "Aumentar a poluição",
+        "Gastar mais água",
+        "Destruir as árvores"
+      ],
+      "correct": 0,
+      "explain": "A reciclagem reduz o lixo e ajuda a proteger a natureza."
+    },
+    {
+      "id": "ci9",
+      "subject": "Ciências",
+      "icon": "🔬",
+      "q": "Qual é o estado físico da água quando ela vira gelo?",
+      "options": [
+        "Sólido",
+        "Líquido",
+        "Gasoso",
+        "Nenhum"
+      ],
+      "correct": 0,
+      "explain": "Quando a água congela, ela fica no estado sólido."
+    },
+    {
+      "id": "ci10",
+      "subject": "Ciências",
+      "icon": "🔬",
+      "q": "O esqueleto do nosso corpo é formado por:",
+      "options": [
+        "Ossos",
+        "Músculos",
+        "Veias",
+        "Pele"
+      ],
+      "correct": 0,
+      "explain": "O esqueleto é formado pelos ossos, que dão sustentação ao corpo."
+    },
+    {
+      "id": "rl1",
+      "subject": "Raciocínio Lógico",
+      "icon": "🧩",
+      "q": "Complete a sequência: 3, 6, 9, 12, ___",
+      "options": [
+        "14",
+        "15",
+        "16",
+        "18"
+      ],
+      "correct": 1,
+      "explain": "A sequência soma 3 a cada número: 3, 6, 9, 12, 15."
+    },
+    {
+      "id": "rl2",
+      "subject": "Raciocínio Lógico",
+      "icon": "🧩",
+      "q": "Se todos os gatos são animais, e Frajola é um gato, então Frajola é:",
+      "options": [
+        "Um animal",
+        "Um cachorro",
+        "Uma planta",
+        "Um peixe"
+      ],
+      "correct": 0,
+      "explain": "Como todo gato é um animal e Frajola é um gato, Frajola também é um animal."
+    },
+    {
+      "id": "rl3",
+      "subject": "Raciocínio Lógico",
+      "icon": "🧩",
+      "q": "Observe: Círculo, Quadrado, Círculo, Quadrado, Círculo, ___. Qual vem a seguir?",
+      "options": [
+        "Círculo",
+        "Quadrado",
+        "Triângulo",
+        "Estrela"
+      ],
+      "correct": 1,
+      "explain": "O padrão se repete: Círculo, Quadrado, Círculo, Quadrado... então vem Quadrado."
+    },
+    {
+      "id": "rl4",
+      "subject": "Raciocínio Lógico",
+      "icon": "🧩",
+      "q": "Pedro é mais velho que Júlia. Júlia é mais velha que Marcos. Quem é o mais NOVO?",
+      "options": [
+        "Pedro",
+        "Júlia",
+        "Marcos",
+        "Todos têm a mesma idade"
+      ],
+      "correct": 2,
+      "explain": "Se Pedro > Júlia > Marcos em idade, Marcos é o mais novo de todos."
+    },
+    {
+      "id": "rl5",
+      "subject": "Raciocínio Lógico",
+      "icon": "🧩",
+      "q": "\"Pássaro\" está para CÉU assim como \"Peixe\" está para ___",
+      "options": [
+        "Água",
+        "Terra",
+        "Ar",
+        "Fogo"
+      ],
+      "correct": 0,
+      "explain": "O pássaro vive no céu, assim como o peixe vive na água."
+    },
+    {
+      "id": "rl6",
+      "subject": "Raciocínio Lógico",
+      "icon": "🧩",
+      "q": "Se hoje é quarta-feira, que dia será daqui a 2 dias?",
+      "options": [
+        "Quinta-feira",
+        "Sexta-feira",
+        "Sábado",
+        "Domingo"
+      ],
+      "correct": 1,
+      "explain": "Quarta + 2 dias = quinta, sexta. A resposta é sexta-feira."
+    },
+    {
+      "id": "rl7",
+      "subject": "Raciocínio Lógico",
+      "icon": "🧩",
+      "q": "Qual destes números NÃO é par?",
+      "options": [
+        "8",
+        "12",
+        "15",
+        "20"
+      ],
+      "correct": 2,
+      "explain": "Números pares terminam em 0,2,4,6,8. O 15 termina em 5, por isso é ímpar."
+    },
+    {
+      "id": "rl8",
+      "subject": "Raciocínio Lógico",
+      "icon": "🧩",
+      "q": "Complete o padrão de letras: A, C, E, G, ___",
+      "options": [
+        "H",
+        "I",
+        "J",
+        "K"
+      ],
+      "correct": 1,
+      "explain": "O padrão pula uma letra a cada vez (A, C, E, G, I)."
+    },
+    {
+      "id": "rl9",
+      "subject": "Raciocínio Lógico",
+      "icon": "🧩",
+      "q": "Em uma corrida, João chegou antes de Pedro, e Pedro chegou antes de Lucas. Quem chegou por ÚLTIMO?",
+      "options": [
+        "João",
+        "Pedro",
+        "Lucas",
+        "Empate"
+      ],
+      "correct": 2,
+      "explain": "Se João é 1º, Pedro é 2º, então Lucas é o último a chegar."
+    },
+    {
+      "id": "rl10",
+      "subject": "Raciocínio Lógico",
+      "icon": "🧩",
+      "q": "Qual fração representa exatamente a \"metade\" de uma pizza?",
+      "options": [
+        "1/2",
+        "1/4",
+        "1/3",
+        "2/2"
+      ],
+      "correct": 0,
+      "explain": "1/2 representa uma parte de um todo dividido em 2 partes iguais, ou seja, a metade."
+    },
+    {
+      "id": "em1",
+      "subject": "Empreendedorismo",
+      "icon": "💡",
+      "q": "Uma barraca de limonada gastou 10 reais para fazer os sucos e vendeu tudo por 25 reais. Qual foi o LUCRO?",
+      "options": [
+        "10",
+        "15",
+        "25",
+        "35"
+      ],
+      "correct": 1,
+      "explain": "Lucro = valor da venda − gastos = 25 − 10 = 15 reais."
+    },
+    {
+      "id": "em2",
+      "subject": "Empreendedorismo",
+      "icon": "💡",
+      "q": "Antes de vender um produto, é importante pesquisar:",
+      "options": [
+        "O preço que as pessoas pagariam",
+        "Apenas a cor da embalagem",
+        "Nada, só vender",
+        "Só o nome da loja"
+      ],
+      "correct": 0,
+      "explain": "Pesquisar o preço que as pessoas topam pagar ajuda o negócio a dar certo."
+    },
+    {
+      "id": "em3",
+      "subject": "Empreendedorismo",
+      "icon": "💡",
+      "q": "Um \"cliente\" é a pessoa que:",
+      "options": [
+        "Compra o produto ou serviço",
+        "Fabrica o produto",
+        "Nunca compra nada",
+        "Rouba o produto"
+      ],
+      "correct": 0,
+      "explain": "O cliente é quem compra ou usa o produto/serviço oferecido."
+    },
+    {
+      "id": "em4",
+      "subject": "Empreendedorismo",
+      "icon": "💡",
+      "q": "Você quer comprar um brinquedo de 50 reais e já tem 30 reais guardados. Quanto ainda falta?",
+      "options": [
+        "15",
+        "20",
+        "25",
+        "30"
+      ],
+      "correct": 1,
+      "explain": "50 − 30 = 20 reais ainda faltam."
+    },
+    {
+      "id": "em5",
+      "subject": "Empreendedorismo",
+      "icon": "💡",
+      "q": "Qual destas é uma boa atitude de um empreendedor?",
+      "options": [
+        "Persistir mesmo com dificuldades",
+        "Desistir no primeiro erro",
+        "Não ouvir os clientes",
+        "Copiar sem pensar"
+      ],
+      "correct": 0,
+      "explain": "Persistência é essencial para superar desafios em qualquer negócio."
+    },
+    {
+      "id": "em6",
+      "subject": "Empreendedorismo",
+      "icon": "💡",
+      "q": "Dividir as tarefas entre os membros de um grupo em um projeto se chama:",
+      "options": [
+        "Trabalho em equipe",
+        "Confusão",
+        "Preguiça",
+        "Desorganização"
+      ],
+      "correct": 0,
+      "explain": "Dividir tarefas de forma organizada é um exemplo de trabalho em equipe."
+    },
+    {
+      "id": "em7",
+      "subject": "Empreendedorismo",
+      "icon": "💡",
+      "q": "O \"lucro\" de um negócio é:",
+      "options": [
+        "O dinheiro que sobra depois de pagar os gastos",
+        "O dinheiro total das vendas",
+        "O dinheiro que falta",
+        "Um tipo de imposto"
+      ],
+      "correct": 0,
+      "explain": "Lucro é o que sobra depois de descontar todos os gastos do total vendido."
+    },
+    {
+      "id": "em8",
+      "subject": "Empreendedorismo",
+      "icon": "💡",
+      "q": "Se dois amigos têm ideias diferentes para o mesmo projeto, a melhor solução é:",
+      "options": [
+        "Conversar e chegar a um acordo",
+        "Brigar até alguém desistir",
+        "Fazer cada um sozinho sem conversar",
+        "Ignorar o problema"
+      ],
+      "correct": 0,
+      "explain": "Conversar e negociar é a melhor forma de resolver diferenças em um projeto."
+    },
+    {
+      "id": "em9",
+      "subject": "Empreendedorismo",
+      "icon": "💡",
+      "q": "Fazer propaganda de um produto serve para:",
+      "options": [
+        "Mostrar o produto para mais pessoas",
+        "Esconder o produto",
+        "Aumentar o preço sem motivo",
+        "Enganar todo mundo"
+      ],
+      "correct": 0,
+      "explain": "A propaganda (divulgação) ajuda mais pessoas a conhecerem o produto."
+    },
+    {
+      "id": "em10",
+      "subject": "Empreendedorismo",
+      "icon": "💡",
+      "q": "Se você vende 5 pulseiras por 4 reais cada, quanto dinheiro você arrecada no total?",
+      "options": [
+        "9",
+        "15",
+        "20",
+        "24"
+      ],
+      "correct": 2,
+      "explain": "5 pulseiras x 4 reais = 20 reais."
+    },
+    {
+      "id": "sp1",
+      "subject": "Solução de Problemas",
+      "icon": "🧠",
+      "q": "Você está em um trabalho em grupo e um colega não está ajudando. O que fazer?",
+      "options": [
+        "Conversar com ele com respeito e pedir ajuda",
+        "Fazer tudo sozinho sem falar nada",
+        "Brigar na frente de todos",
+        "Contar para todos que ele é preguiçoso"
+      ],
+      "correct": 0,
+      "explain": "Conversar com respeito é a melhor forma de resolver o problema em grupo."
+    },
+    {
+      "id": "sp2",
+      "subject": "Solução de Problemas",
+      "icon": "🧠",
+      "q": "Você tem 30 minutos para terminar a tarefa e ainda tem 3 exercícios. O que fazer?",
+      "options": [
+        "Organizar o tempo e priorizar",
+        "Desistir de terminar",
+        "Fazer só o mais fácil",
+        "Chorar sem tentar"
+      ],
+      "correct": 0,
+      "explain": "Organizar o tempo e priorizar ajuda a terminar a tarefa com calma."
+    },
+    {
+      "id": "sp3",
+      "subject": "Solução de Problemas",
+      "icon": "🧠",
+      "q": "Seu amigo pegou seu brinquedo emprestado e ele quebrou sem querer. O que você faz?",
+      "options": [
+        "Conversar com calma, entendendo que foi sem querer",
+        "Ficar bravo para sempre",
+        "Nunca mais falar com ele",
+        "Quebrar o brinquedo dele também"
+      ],
+      "correct": 0,
+      "explain": "Conversar com calma e entender que foi um acidente é a atitude mais madura."
+    },
+    {
+      "id": "sp4",
+      "subject": "Solução de Problemas",
+      "icon": "🧠",
+      "q": "Você esqueceu o material da escola em casa. Qual a melhor atitude?",
+      "options": [
+        "Avisar o professor e pedir orientação",
+        "Fingir que está tudo bem",
+        "Culpar um colega",
+        "Não ir para a aula"
+      ],
+      "correct": 0,
+      "explain": "Avisar o professor é o caminho certo para resolver o esquecimento."
+    },
+    {
+      "id": "sp5",
+      "subject": "Solução de Problemas",
+      "icon": "🧠",
+      "q": "Numa atividade em grupo, surgem duas ideias diferentes de como fazer. O que é mais sensato?",
+      "options": [
+        "Ouvir as duas ideias e escolher a melhor juntos",
+        "Ignorar uma das ideias sem ouvir",
+        "Fazer a atividade sozinho",
+        "Discutir sem se ouvir"
+      ],
+      "correct": 0,
+      "explain": "Ouvir todas as ideias e decidir juntos é a forma mais justa de resolver."
+    },
+    {
+      "id": "sp6",
+      "subject": "Solução de Problemas",
+      "icon": "🧠",
+      "q": "Você está com dificuldade em um exercício de matemática. Qual é a melhor estratégia?",
+      "options": [
+        "Reler o problema com calma e tentar por partes",
+        "Copiar de qualquer jeito",
+        "Desistir na hora",
+        "Chutar qualquer resposta"
+      ],
+      "correct": 0,
+      "explain": "Reler com calma e resolver por partes ajuda a entender melhor o problema."
+    },
+    {
+      "id": "sp7",
+      "subject": "Solução de Problemas",
+      "icon": "🧠",
+      "q": "Um colega está sendo excluído das brincadeiras. O que você pode fazer?",
+      "options": [
+        "Convidá-lo para brincar com o grupo",
+        "Ignorar a situação",
+        "Rir junto com quem exclui",
+        "Fingir que não percebeu"
+      ],
+      "correct": 0,
+      "explain": "Convidar o colega para participar mostra empatia e gentileza."
+    },
+    {
+      "id": "sp8",
+      "subject": "Solução de Problemas",
+      "icon": "🧠",
+      "q": "Você prometeu ajudar sua mãe e também quer assistir a um desenho. O que fazer?",
+      "options": [
+        "Cumprir a promessa primeiro e depois assistir",
+        "Assistir e esquecer a promessa",
+        "Fingir que esqueceu",
+        "Pedir para outra pessoa fazer"
+      ],
+      "correct": 0,
+      "explain": "Cumprir compromissos é importante; depois ainda dá tempo de assistir ao desenho."
+    },
+    {
+      "id": "sp9",
+      "subject": "Solução de Problemas",
+      "icon": "🧠",
+      "q": "Você recebeu uma tarefa difícil na escola. Qual a atitude mais produtiva?",
+      "options": [
+        "Pedir ajuda ao professor quando precisar",
+        "Fingir que entendeu tudo",
+        "Copiar sem entender",
+        "Desistir da matéria"
+      ],
+      "correct": 0,
+      "explain": "Pedir ajuda quando necessário é uma atitude inteligente para aprender melhor."
+    },
+    {
+      "id": "sp10",
+      "subject": "Solução de Problemas",
+      "icon": "🧠",
+      "q": "Ao perceber que errou em algo importante, o melhor a fazer é:",
+      "options": [
+        "Assumir o erro e tentar corrigir",
+        "Esconder e fingir que não aconteceu",
+        "Culpar outra pessoa",
+        "Ficar chateado sem agir"
+      ],
+      "correct": 0,
+      "explain": "Assumir o erro e buscar corrigir é o caminho para aprender e crescer."
+    },
+    {
+      "id": "mu1",
+      "subject": "Mundo",
+      "icon": "🗺️",
+      "q": "Qual é o maior país da América do Sul em território?",
+      "options": [
+        "Brasil",
+        "Argentina",
+        "Chile",
+        "Peru"
+      ],
+      "correct": 0,
+      "explain": "O Brasil é o maior país da América do Sul."
+    },
+    {
+      "id": "mu2",
+      "subject": "Mundo",
+      "icon": "🗺️",
+      "q": "A Floresta Amazônica fica principalmente em qual país?",
+      "options": [
+        "Brasil",
+        "México",
+        "Canadá",
+        "Portugal"
+      ],
+      "correct": 0,
+      "explain": "A maior parte da Floresta Amazônica está no território brasileiro."
+    },
+    {
+      "id": "mu3",
+      "subject": "Mundo",
+      "icon": "🗺️",
+      "q": "Qual destes é um dos cinco continentes?",
+      "options": [
+        "África",
+        "Amazônia",
+        "Pantanal",
+        "Andes"
+      ],
+      "correct": 0,
+      "explain": "A África é um continente. Amazônia, Pantanal e Andes são regiões, não continentes."
+    },
+    {
+      "id": "mu4",
+      "subject": "Mundo",
+      "icon": "🗺️",
+      "q": "Qual idioma é o oficial no Brasil?",
+      "options": [
+        "Português",
+        "Espanhol",
+        "Inglês",
+        "Francês"
+      ],
+      "correct": 0,
+      "explain": "O português é o idioma oficial falado no Brasil."
+    },
+    {
+      "id": "mu5",
+      "subject": "Mundo",
+      "icon": "🗺️",
+      "q": "O Rio Amazonas é conhecido por ser:",
+      "options": [
+        "Um dos maiores rios do mundo",
+        "O menor rio do mundo",
+        "Um oceano",
+        "Um deserto"
+      ],
+      "correct": 0,
+      "explain": "O Rio Amazonas é um dos maiores e mais caudalosos rios do planeta."
+    },
+    {
+      "id": "mu6",
+      "subject": "Mundo",
+      "icon": "🗺️",
+      "q": "Qual destes é um ponto cardeal (usado para indicar direção)?",
+      "options": [
+        "Norte",
+        "Centro",
+        "Meio",
+        "Lado"
+      ],
+      "correct": 0,
+      "explain": "Norte, Sul, Leste e Oeste são os pontos cardeais."
+    },
+    {
+      "id": "mu7",
+      "subject": "Mundo",
+      "icon": "🗺️",
+      "q": "A Cordilheira dos Andes fica principalmente em qual continente?",
+      "options": [
+        "América do Sul",
+        "África",
+        "Ásia",
+        "Europa"
+      ],
+      "correct": 0,
+      "explain": "Os Andes são uma cadeia de montanhas que atravessa vários países da América do Sul."
+    },
+    {
+      "id": "mu8",
+      "subject": "Mundo",
+      "icon": "🗺️",
+      "q": "Qual destes é um símbolo oficial do Brasil?",
+      "options": [
+        "A bandeira",
+        "Um animal qualquer",
+        "Uma cor qualquer",
+        "Uma comida qualquer"
+      ],
+      "correct": 0,
+      "explain": "A bandeira é um símbolo oficial que representa o país."
+    },
+    {
+      "id": "mu9",
+      "subject": "Mundo",
+      "icon": "🗺️",
+      "q": "O oceano que fica entre o Brasil e a África se chama:",
+      "options": [
+        "Atlântico",
+        "Pacífico",
+        "Índico",
+        "Ártico"
+      ],
+      "correct": 0,
+      "explain": "O Oceano Atlântico banha o litoral do Brasil e da África."
+    },
+    {
+      "id": "mu10",
+      "subject": "Mundo",
+      "icon": "🗺️",
+      "q": "Qual destes é um famoso Patrimônio Natural do Brasil?",
+      "options": [
+        "Cataratas do Iguaçu",
+        "Torre Eiffel",
+        "Muralha da China",
+        "Pirâmides do Egito"
+      ],
+      "correct": 0,
+      "explain": "As Cataratas do Iguaçu ficam no Brasil e são um patrimônio natural famoso."
+    }
+  ],
+  "discursive": [
+    {
+      "id": "ds1",
+      "subject": "Discursiva",
+      "icon": "✍️",
+      "prompt": "Conte com suas palavras o que você fez de mais interessante essa semana. Capriche nos detalhes!",
+      "guidance": "Verifique se a resposta tem começo, meio e fim, se as frases fazem sentido e se ela conta os fatos em uma ordem clara."
+    },
+    {
+      "id": "ds2",
+      "subject": "Discursiva",
+      "icon": "✍️",
+      "prompt": "Por que é importante economizar água no nosso dia a dia? Explique com suas palavras.",
+      "guidance": "Uma boa resposta menciona que a água é importante e pode faltar, e cita pelo menos uma atitude prática, como fechar a torneira ao escovar os dentes."
+    },
+    {
+      "id": "ds3",
+      "subject": "Discursiva",
+      "icon": "✍️",
+      "prompt": "Invente uma pequena história (3 a 5 frases) sobre um animal que você gosta.",
+      "guidance": "Verifique se a história tem começo, meio e fim, um personagem (o animal) e se as frases têm sentido entre si."
+    },
+    {
+      "id": "ds4",
+      "subject": "Discursiva",
+      "icon": "✍️",
+      "prompt": "Se você pudesse criar uma lojinha ou barraquinha, o que você venderia e por quê?",
+      "guidance": "A resposta deve indicar um produto ou serviço e alguma justificativa simples (gosta de fazer, as pessoas comprariam, etc.), mostrando raciocínio de empreendedorismo."
+    },
+    {
+      "id": "ds5",
+      "subject": "Discursiva",
+      "icon": "✍️",
+      "prompt": "Explique com suas palavras por que devemos escovar os dentes todos os dias.",
+      "guidance": "A resposta deve falar sobre higiene, saúde bucal e evitar problemas como cáries ou dor de dente."
+    },
+    {
+      "id": "ds6",
+      "subject": "Discursiva",
+      "icon": "✍️",
+      "prompt": "Descreva os passos que você segue para resolver uma tarefa de matemática difícil.",
+      "guidance": "Uma boa resposta mostra alguma estratégia, como ler com calma, fazer por partes ou pedir ajuda quando necessário."
+    },
+    {
+      "id": "ds7",
+      "subject": "Discursiva",
+      "icon": "✍️",
+      "prompt": "Se um amigo estivesse triste, o que você faria e diria para ajudá-lo?",
+      "guidance": "A resposta deve demonstrar empatia e alguma ação concreta, como perguntar o que aconteceu ou oferecer ajuda."
+    },
+    {
+      "id": "ds8",
+      "subject": "Discursiva",
+      "icon": "✍️",
+      "prompt": "Explique com suas palavras a diferença entre o dia e a noite.",
+      "guidance": "A resposta pode mencionar o sol e a claridade de dia, e a lua/escuridão à noite, ou até o movimento da Terra, se souber."
+    }
+  ]
+}
