@@ -121,9 +121,9 @@ function pickDiscursiveQuestion() {
 
 // ===================== ENVIO DE E-MAIL (com fila offline) =====================
 function isEmailConfigured(){
-  return EMAILJS_CONFIG.PUBLIC_KEY && !EMAILJS_CONFIG.PUBLIC_KEY.startsWith('COLE_AQUI') &&
-         EMAILJS_CONFIG.SERVICE_ID && !EMAILJS_CONFIG.SERVICE_ID.startsWith('COLE_AQUI') &&
-         EMAILJS_CONFIG.TEMPLATE_ID && !EMAILJS_CONFIG.TEMPLATE_ID.startsWith('COLE_AQUI');
+  return EMAILJS_CONFIG.PUBLIC_KEY && !EMAILJS_CONFIG.PUBLIC_KEY.startsWith('Rn5XRC_kIDLhy5XtB') &&
+         EMAILJS_CONFIG.SERVICE_ID && !EMAILJS_CONFIG.SERVICE_ID.startsWith('service_hinemhc') &&
+         EMAILJS_CONFIG.TEMPLATE_ID && !EMAILJS_CONFIG.TEMPLATE_ID.startsWith('template_dvu76xu');
 }
 
 function queueReport(report){
