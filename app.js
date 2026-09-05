@@ -10,10 +10,10 @@
    mas o e-mail de notificação não será enviado (ficará na fila).
 ===================================================================== */
 var EMAILJS_CONFIG = {
-  PUBLIC_KEY: 'COLE_AQUI_SUA_PUBLIC_KEY',
-  SERVICE_ID: 'COLE_AQUI_SEU_SERVICE_ID',
-  TEMPLATE_ID: 'COLE_AQUI_SEU_TEMPLATE_ID',
-  PARENT_EMAIL: 'coloque.o.seu@email.com'
+  PUBLIC_KEY: 'Rn5XRC_kIDLhy5XtB',
+  SERVICE_ID: 'service_hinemhc',
+  TEMPLATE_ID: 'template_dvu76xu',
+  PARENT_EMAIL: 'davicm00@gmail.com'
 };
 
 // ===================== ESTADO DO APP =====================
