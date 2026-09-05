@@ -14002,61 +14002,270 @@
     }
   ],
   "discursive": [
-    {
-      "id": "ds1",
-      "subject": "Discursiva",
-      "icon": "✍️",
-      "prompt": "Conte algo interessante que você aprendeu recentemente e explique por que isso chamou sua atenção.",
-      "guidance": "Observe se a resposta tem ideias organizadas e uma explicação pessoal."
-    },
-    {
-      "id": "ds2",
-      "subject": "Discursiva",
-      "icon": "✍️",
-      "prompt": "Imagine que você vai ensinar uma criança menor a resolver uma conta difícil. Como explicaria?",
-      "guidance": "Procure uma sequência de passos clara."
-    },
-    {
-      "id": "ds3",
-      "subject": "Discursiva",
-      "icon": "✍️",
-      "prompt": "Invente uma pequena história com começo, meio e fim sobre uma descoberta.",
-      "guidance": "Verifique personagens, sequência e coerência."
-    },
-    {
-      "id": "ds4",
-      "subject": "Discursiva",
-      "icon": "✍️",
-      "prompt": "Se pudesse melhorar algo em sua escola, o que escolheria e como faria?",
-      "guidance": "Procure problema, proposta e justificativa."
-    },
-    {
-      "id": "ds5",
-      "subject": "Discursiva",
-      "icon": "✍️",
-      "prompt": "Explique por que é importante conferir uma informação antes de acreditar nela.",
-      "guidance": "A resposta deve mencionar verificação e fontes confiáveis."
-    },
-    {
-      "id": "ds6",
-      "subject": "Discursiva",
-      "icon": "✍️",
-      "prompt": "Descreva uma situação em que você precisou tentar mais de uma vez para conseguir algo.",
-      "guidance": "Observe persistência e organização dos fatos."
-    },
-    {
-      "id": "ds7",
-      "subject": "Discursiva",
-      "icon": "✍️",
-      "prompt": "Como você pode ajudar alguém que está com dificuldade para aprender algo?",
-      "guidance": "Procure empatia e ações concretas."
-    },
-    {
-      "id": "ds8",
-      "subject": "Discursiva",
-      "icon": "✍️",
-      "prompt": "Imagine uma invenção que resolveria um problema do dia a dia. Descreva como ela funcionaria.",
-      "guidance": "Avalie criatividade, clareza e relação entre problema e solução."
-    }
-  ]
-}
+  {
+    "id": "ds1",
+    "subject": "Discursiva",
+    "icon": "✍️",
+    "prompt": "Conte algo interessante que você aprendeu recentemente e explique por que isso chamou sua atenção.",
+    "guidance": "Observe se a resposta tem ideias organizadas e uma explicação pessoal."
+  },
+  {
+    "id": "ds2",
+    "subject": "Discursiva",
+    "icon": "✍️",
+    "prompt": "Imagine que você vai ensinar uma criança menor a resolver uma conta difícil. Como explicaria?",
+    "guidance": "Procure uma sequência de passos clara."
+  },
+  {
+    "id": "ds3",
+    "subject": "Discursiva",
+    "icon": "✍️",
+    "prompt": "Invente uma pequena história com começo, meio e fim sobre uma descoberta.",
+    "guidance": "Verifique personagens, sequência e coerência."
+  },
+  {
+    "id": "ds4",
+    "subject": "Discursiva",
+    "icon": "✍️",
+    "prompt": "Se pudesse melhorar algo em sua escola, o que escolheria e como faria?",
+    "guidance": "Procure problema, proposta e justificativa."
+  },
+  {
+    "id": "ds5",
+    "subject": "Discursiva",
+    "icon": "✍️",
+    "prompt": "Explique por que é importante conferir uma informação antes de acreditar nela.",
+    "guidance": "A resposta deve mencionar verificação e fontes confiáveis."
+  },
+  {
+    "id": "ds6",
+    "subject": "Discursiva",
+    "icon": "✍️",
+    "prompt": "Descreva uma situação em que você precisou tentar mais de uma vez para conseguir algo.",
+    "guidance": "Observe persistência e organização dos fatos."
+  },
+  {
+    "id": "ds7",
+    "subject": "Discursiva",
+    "icon": "✍️",
+    "prompt": "Como você pode ajudar alguém que está com dificuldade para aprender algo?",
+    "guidance": "Procure empatia e ações concretas."
+  },
+  {
+    "id": "ds8",
+    "subject": "Discursiva",
+    "icon": "✍️",
+    "prompt": "Imagine uma invenção que resolveria um problema do dia a dia. Descreva como ela funcionaria.",
+    "guidance": "Avalie criatividade, clareza e relação entre problema e solução."
+  },
+  {
+    "id": "ds9",
+    "subject": "Discursiva",
+    "icon": "🔢",
+    "prompt": "Você tem R$ 20 e quer comprar dois produtos. Um custa R$ 7 e o outro R$ 9. Quanto dinheiro sobrará? Explique como você pensou.",
+    "guidance": "Observe se a criança apresenta a conta e explica o raciocínio utilizado."
+  },
+  {
+    "id": "ds10",
+    "subject": "Discursiva",
+    "icon": "📚",
+    "prompt": "Escolha uma palavra bonita e escreva uma frase usando essa palavra. Depois explique por que você a escolheu.",
+    "guidance": "Observe construção da frase, criatividade e justificativa."
+  },
+  {
+    "id": "ds11",
+    "subject": "Discursiva",
+    "icon": "🔬",
+    "prompt": "Explique com suas palavras o que aconteceria com uma planta se ela nunca recebesse água.",
+    "guidance": "Procure relação entre água, sobrevivência e crescimento da planta."
+  },
+  {
+    "id": "ds12",
+    "subject": "Discursiva",
+    "icon": "🌎",
+    "prompt": "Escreva três palavras que você conhece em inglês e explique o significado de cada uma.",
+    "guidance": "Avalie vocabulário, significado e tentativa de explicação."
+  },
+  {
+    "id": "ds13",
+    "subject": "Discursiva",
+    "icon": "🗺️",
+    "prompt": "Se você pudesse viajar para qualquer lugar do Brasil, para onde iria e por quê?",
+    "guidance": "Observe localização, criatividade e capacidade de justificar escolhas."
+  },
+  {
+    "id": "ds14",
+    "subject": "Discursiva",
+    "icon": "🧩",
+    "prompt": "Crie uma sequência de números com uma regra escondida. Depois explique qual é a regra.",
+    "guidance": "Verifique se existe um padrão lógico consistente."
+  },
+  {
+    "id": "ds15",
+    "subject": "Discursiva",
+    "icon": "🎨",
+    "prompt": "Imagine que você precisa criar um desenho que represente a palavra 'alegria'. O que desenharia e quais cores escolheria?",
+    "guidance": "Avalie criatividade e capacidade de relacionar imagens e cores a sentimentos."
+  },
+  {
+    "id": "ds16",
+    "subject": "Discursiva",
+    "icon": "💡",
+    "prompt": "Imagine que você quer vender um produto para seus colegas. Que produto seria esse, quanto custaria e por que alguém gostaria de comprá-lo?",
+    "guidance": "Procure compreensão básica de produto, preço e cliente."
+  },
+  {
+    "id": "ds17",
+    "subject": "Discursiva",
+    "icon": "🧠",
+    "prompt": "Você perdeu um brinquedo importante. Quais passos seguiria para tentar encontrá-lo?",
+    "guidance": "Observe planejamento, sequência lógica e capacidade de resolver problemas."
+  },
+  {
+    "id": "ds18",
+    "subject": "Discursiva",
+    "icon": "💻",
+    "prompt": "Explique por que não devemos contar nossa senha para qualquer pessoa.",
+    "guidance": "Procure compreensão sobre segurança e proteção de informações pessoais."
+  },
+  {
+    "id": "ds19",
+    "subject": "Discursiva",
+    "icon": "🤝",
+    "prompt": "O que você faria se visse uma criança sendo tratada de forma injusta?",
+    "guidance": "Observe empatia, senso de justiça e busca de ajuda adequada."
+  },
+  {
+    "id": "ds20",
+    "subject": "Discursiva",
+    "icon": "🔢",
+    "prompt": "Explique uma maneira diferente de descobrir quanto é 25 + 17 sem fazer a conta exatamente do jeito tradicional.",
+    "guidance": "Avalie estratégias de cálculo mental e explicação do raciocínio."
+  },
+  {
+    "id": "ds21",
+    "subject": "Discursiva",
+    "icon": "📖",
+    "prompt": "Invente um novo final para uma história que você conhece.",
+    "guidance": "Observe criatividade, coerência e organização da narrativa."
+  },
+  {
+    "id": "ds22",
+    "subject": "Discursiva",
+    "icon": "🔬",
+    "prompt": "Se você fosse um cientista por um dia, o que gostaria de pesquisar ou descobrir?",
+    "guidance": "Avalie curiosidade, criatividade e capacidade de formular uma ideia."
+  },
+  {
+    "id": "ds23",
+    "subject": "Discursiva",
+    "icon": "🌍",
+    "prompt": "Imagine que você encontrou uma criança que fala outro idioma. Como tentaria se comunicar com ela?",
+    "guidance": "Procure criatividade, empatia e compreensão de diferentes formas de comunicação."
+  },
+  {
+    "id": "ds24",
+    "subject": "Discursiva",
+    "icon": "🧩",
+    "prompt": "Você precisa atravessar um rio imaginário sem molhar os pés. Que ideias teria para resolver esse problema?",
+    "guidance": "Avalie criatividade e capacidade de propor diferentes soluções."
+  },
+  {
+    "id": "ds25",
+    "subject": "Discursiva",
+    "icon": "🎨",
+    "prompt": "Crie uma nova bandeira para uma cidade imaginária. Quais símbolos e cores ela teria e o que cada um significaria?",
+    "guidance": "Observe criatividade, simbolismo e capacidade de explicar escolhas."
+  },
+  {
+    "id": "ds26",
+    "subject": "Discursiva",
+    "icon": "💡",
+    "prompt": "Você recebeu R$ 100 para realizar um pequeno projeto. Como usaria esse dinheiro?",
+    "guidance": "Procure planejamento, prioridades e noção básica de orçamento."
+  },
+  {
+    "id": "ds27",
+    "subject": "Discursiva",
+    "icon": "🧠",
+    "prompt": "Você e seus amigos precisam construir uma torre usando poucos materiais. Como organizaria o trabalho do grupo?",
+    "guidance": "Avalie planejamento, cooperação e divisão de tarefas."
+  },
+  {
+    "id": "ds28",
+    "subject": "Discursiva",
+    "icon": "💻",
+    "prompt": "Imagine um robô que poderia ajudar sua família. O que ele faria e como funcionaria?",
+    "guidance": "Observe criatividade e capacidade de explicar uma solução tecnológica."
+  },
+  {
+    "id": "ds29",
+    "subject": "Discursiva",
+    "icon": "🤝",
+    "prompt": "Por que pessoas diferentes podem pensar de maneiras diferentes sobre o mesmo assunto?",
+    "guidance": "Procure compreensão sobre diversidade de experiências e opiniões."
+  },
+  {
+    "id": "ds30",
+    "subject": "Discursiva",
+    "icon": "🌱",
+    "prompt": "O que você faria para deixar sua cidade mais bonita, limpa e agradável?",
+    "guidance": "Avalie consciência ambiental e propostas práticas."
+  },
+  {
+    "id": "ds31",
+    "subject": "Discursiva",
+    "icon": "📚",
+    "prompt": "Escolha um personagem de uma história e imagine que ele aparece na sua escola. O que aconteceria?",
+    "guidance": "Observe criatividade, construção narrativa e coerência."
+  },
+  {
+    "id": "ds32",
+    "subject": "Discursiva",
+    "icon": "🔢",
+    "prompt": "Crie um problema de matemática para outra pessoa resolver. Depois explique qual é a resposta.",
+    "guidance": "Avalie criação do problema, coerência dos números e solução."
+  },
+  {
+    "id": "ds33",
+    "subject": "Discursiva",
+    "icon": "🔬",
+    "prompt": "Se os animais pudessem falar, qual animal você gostaria de entrevistar e quais três perguntas faria?",
+    "guidance": "Observe curiosidade, criatividade e qualidade das perguntas."
+  },
+  {
+    "id": "ds34",
+    "subject": "Discursiva",
+    "icon": "🗺️",
+    "prompt": "Descreva como seria um mapa do seu quarto para alguém que nunca esteve nele.",
+    "guidance": "Procure noção espacial, organização e descrição clara."
+  },
+  {
+    "id": "ds35",
+    "subject": "Discursiva",
+    "icon": "💡",
+    "prompt": "Imagine que você criou uma empresa. Qual seria o nome dela, o que ela faria e por que as pessoas precisariam dela?",
+    "guidance": "Avalie criatividade, noção de propósito e explicação do negócio."
+  },
+  {
+    "id": "ds36",
+    "subject": "Discursiva",
+    "icon": "🧠",
+    "prompt": "Qual foi um problema difícil que você conseguiu resolver? Conte como chegou à solução.",
+    "guidance": "Observe capacidade de reflexão sobre o próprio processo de aprendizagem."
+  },
+  {
+    "id": "ds37",
+    "subject": "Discursiva",
+    "icon": "🤝",
+    "prompt": "O que significa ser um bom amigo? Dê exemplos de atitudes que mostram amizade.",
+    "guidance": "Procure empatia, respeito e exemplos concretos."
+  },
+  {
+    "id": "ds38",
+    "subject": "Discursiva",
+    "icon": "🚀",
+    "prompt": "Imagine como será o mundo quando você for adulto. Quais mudanças você acha que acontecerão?",
+    "guidance": "Avalie criatividade, capacidade de imaginar o futuro e argumentação."
+  }
+]
