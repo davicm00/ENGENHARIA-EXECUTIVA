@@ -3,7 +3,7 @@
 ===================================================================== */
 
 const CACHE_NAME =
-  'prova-laura-cache-v3';
+  'prova-laura-cache-v4';
 
 
 const APP_SHELL = [
