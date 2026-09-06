@@ -7,7 +7,7 @@ var EMAILJS_CONFIG = {
   PUBLIC_KEY: 'Rn5XRC_kIDLhy5XtB',
   SERVICE_ID: 'service_hinemhc',
   TEMPLATE_ID: 'template_dvu76xu',
-  PARENT_EMAIL: 'davicm00@gmail.com'
+  PARENT_EMAIL: 'davicm00@gmail.com', 'marciellyparreira@gmail.com'
 };
 
 
